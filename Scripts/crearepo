@@ -1,0 +1,14 @@
+#!/bin/bash
+#You must have configurated your user.name like your username of GitHub, else, you must change the USERNAME variable
+USERNAME=$(git config user.name) 
+if [ "$1" != "" ]; then
+    JSON="{\"name\":"
+    JSON=$JSON\"$1\"'}'
+    echo $JSON
+    curl -u $USERNAME https://api.github.com/user/repos -d $JSON
+    echo "Remote repo created"
+    git init
+    git remote add origin git@github.com:$USERNAME/$1.git
+else
+    echo "USAGE: crearrepo name"
+fi

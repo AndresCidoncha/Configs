@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Script para facilitar instalación
+
+
+usage(){
+   echo "uso: instalar [[-r | --repo repositorio] programa | [-h | --help]] "
+   echo "Ejemplo: instalar kate, instalar -r ppa:cosas programacosas"
+}
+
+addrepo(){
+	sudo add-apt-repository -y $1
+	sudo apt-get update
+}
+
+error_exit()
+{
+        echo "$1" 1>&2
+        usage
+        exit 1
+}
+
+##### Programa principal
+
+test -x $(which apt-get) || error_exit "Falta el componente apt-get"
+
+
+while [ "$1" != "" ]; do
+	case $1 in
+       -r | --repo )	shift
+						if [ "$1" != "" ]; then
+							addrepo $1
+						fi
+						;;
+                               
+								
+       -h | --help )	usage
+						exit
+						;;
+                               
+       * )				sudo apt-get install $1	
+
+	esac
+	shift
+done
+
+
+
+
+

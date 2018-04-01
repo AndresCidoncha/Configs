@@ -1,0 +1,32 @@
+{
+  "test": {
+    "version": "x",
+    "repo": "repo",
+    "pre_steps": ["echo test", "echo test2"],
+    "additional_packages": [
+      "test"
+    ],
+    "post_steps": [
+      "date"
+    ]
+  },
+  "nemo": {
+    "repo": "ppa:noobslab/nemo3",
+    "additional_packages": [
+      "nemo-compare",
+      "nemo-audio-tab",
+      "nemo-emblems",
+      "nemo-filename-repairer",
+      "nemo-fileroller",
+      "nemo-gtkhash",
+      "nemo-image-converter",
+      "nemo-pastebin",
+      "python-nemo",
+      "nemo-rabbitvcs",
+      "nemo-seahorse",
+      "nemo-share",
+      "nemo-terminal"
+    ]
+  },
+  "jq" : {}
+}
